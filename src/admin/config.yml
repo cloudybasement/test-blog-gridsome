@@ -1,0 +1,64 @@
+backend:
+  name: git-gateway
+  branch: master
+  commit_messages:
+    create: "Create {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "[skip ci] Upload “{{path}}”"
+    deleteMedia: "[skip ci] Delete “{{path}}”"
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "date" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - {
+          label: "Excerpt Image",
+          name: excerpt_image,
+          widget: image,
+          required: false,
+        }
+      - {
+          label: "Cover Image",
+          name: cover_image,
+          widget: image,
+          required: false,
+        }
+  - name: "site-pages"
+    create: false
+    label: "Pages"
+    files:
+      - file: "content/pages/homepage.md"
+        label: "Homepage"
+        name: "index"
+        fields:
+          - { label: "Title", name: "title", widget: string }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Hero Image", name: hero_image, widget: image }
+      - file: "content/pages/about.md"
+        label: "About"
+        name: "about"
+        fields:
+          - { label: "Title", name: "title", widget: string }
+          - { label: "Body", name: "body", widget: "markdown" }
+  - name: "faq"
+    label: "Faq"
+    folder: "content/faq"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Type", name: "type", widget: "hidden", default: "faq" }
+      - { label: "Question", name: "question", widget: string }
+      - { label: "Position", name: "position", widget: number }
+      - { label: "Answer", name: "body", widget: "markdown" }

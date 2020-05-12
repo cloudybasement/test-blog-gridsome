@@ -1,0 +1,32 @@
+{
+  "name": "gridsome-starter-netlify-cms-tailwind",
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=development run-p start:**",
+    "start:app": "yarn run develop",
+    "start:lambda": "netlify-lambda serve -c ./netlify.webpack.functions.js src/lambda",
+    "build": "run-p build:**",
+    "build:app": "gridsome build",
+    "build:lambda": "netlify-lambda build -c ./netlify.webpack.functions.js src/lambda",
+    "develop": "gridsome develop",
+    "deploy": "yarn build && netlify deploy --prod",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@gridsome/plugin-sitemap": "^0.2.3",
+    "@gridsome/source-filesystem": "^0.6.2",
+    "@gridsome/transformer-remark": "^0.5.0",
+    "gridsome": "^0.7.0",
+    "gridsome-plugin-netlify-cms": "^1.0.9",
+    "gridsome-plugin-rss": "^1.2.0",
+    "gridsome-plugin-tailwindcss": "^2.2.48",
+    "netlify-cms": "^2.10.48",
+    "vue-unicons": "^2.1.0"
+  },
+  "devDependencies": {
+    "dotenv-webpack": "^1.8.0",
+    "http-proxy-middleware": "^1.0.4",
+    "netlify-lambda": "^1.6.3",
+    "npm-run-all": "^4.1.5"
+  }
+}

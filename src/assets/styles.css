@@ -1,0 +1,38 @@
+body {
+  @apply h-screen;
+}
+
+/* GENERAL */
+h1,
+h2,
+h3,
+h4 {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+h1 {
+  @apply text-6xl mb-8;
+}
+h2 {
+  @apply text-5xl mb-6;
+}
+h3 {
+  @apply text-3xl mb-3 font-medium  text-gray-800;
+}
+h4 {
+  @apply text-2xl font-medium  text-gray-800;
+}
+p {
+  @apply mb-4 text-gray-700;
+}
+
+.container {
+  @apply max-w-screen-lg px-4 mx-auto w-full;
+}
+
+/* LIST */
+ol {
+  @apply list-decimal pl-6 my-3 text-gray-700;
+}
+.markdown ul {
+  @apply list-disc pl-6 my-3 text-gray-700;
+}
